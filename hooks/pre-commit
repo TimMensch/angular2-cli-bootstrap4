@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Run tslint before every commit.
+hooks=`dirname $0`
+gitroot=`cd $hooks/../..&& pwd`
+
+tslint src/**/*.ts || echo 'Pre-commit linting failed!' && exit 1
